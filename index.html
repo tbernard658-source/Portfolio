@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frise Chronologique Interactive</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Frise Chronologique Interactive</h1>
+
+    <!-- Frise chronologique -->
+    <div class="timeline">
+        <div class="event" id="event1" onclick="showContent(1)">
+            <span class="point"></span>
+            <p>Événement 1</p>
+        </div>
+        <div class="event" id="event2" onclick="showContent(2)">
+            <span class="point"></span>
+            <p>Événement 2</p>
+        </div>
+        <div class="event" id="event3" onclick="showContent(3)">
+            <span class="point"></span>
+            <p>Événement 3</p>
+        </div>
+        <div class="event" id="event4" onclick="showContent(4)">
+            <span class="point"></span>
+            <p>Événement 4</p>
+        </div>
+        <div class="event" id="event5" onclick="showContent(5)">
+            <span class="point"></span>
+            <p>Événement 5</p>
+        </div>
+    </div>
+
+    <!-- Section contenant l'image et le texte à afficher -->
+    <div class="content" id="content">
+        <h2 id="content-title">Titre de l'événement</h2>
+        <img id="content-image" src="" alt="Image de l'événement">
+        <p id="content-text">Description de l'événement...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
