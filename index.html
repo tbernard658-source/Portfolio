@@ -1,46 +1,184 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frise Chronologique Interactive</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Protocole / Timeline horizontale</title>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-
-    <h1>Frise Chronologique Interactive</h1>
-
-    <!-- Frise chronologique -->
-    <div class="timeline">
-        <div class="event" id="event1" onclick="showContent(1)">
-            <span class="point"></span>
-            <p>Événement 1</p>
-        </div>
-        <div class="event" id="event2" onclick="showContent(2)">
-            <span class="point"></span>
-            <p>Événement 2</p>
-        </div>
-        <div class="event" id="event3" onclick="showContent(3)">
-            <span class="point"></span>
-            <p>Événement 3</p>
-        </div>
-        <div class="event" id="event4" onclick="showContent(4)">
-            <span class="point"></span>
-            <p>Événement 4</p>
-        </div>
-        <div class="event" id="event5" onclick="showContent(5)">
-            <span class="point"></span>
-            <p>Événement 5</p>
-        </div>
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="title">Sample preparation</h1>
+      <p class="subtitle">Preparation of cement paste scale sample to facilitate the development of the test methods.</p>
     </div>
+  </header>
 
-    <!-- Section contenant l'image et le texte à afficher -->
-    <div class="content" id="content">
-        <h2 id="content-title">Titre de l'événement</h2>
-        <img id="content-image" src="" alt="Image de l'événement">
-        <p id="content-text">Description de l'événement...</p>
+  <main class="wrap main">
+    <!-- Horizontal timeline -->
+    <section class="timeline-section" aria-label="Frise chronologique">
+      <div class="timeline-container" id="timeline">
+        <div class="timeline-line" aria-hidden="true"></div>
+
+        <ol class="timeline-steps" role="list">
+          <!-- six steps -->
+          <li class="step" data-index="1">
+            <div class="step-head">
+              <div class="step-dot">1</div>
+              <div class="step-title">
+                <h3>Titre 1</h3>
+                <p class="step-desc">Courte description de l'étape 1 — résumé.</p>
+              </div>
+            </div>
+
+            <div class="step-links">
+              <!-- Link types: image+title+desc, title+desc, logo+title+desc -->
+              <a class="card card-image" href="#" data-popup='{"title":"Image A1","type":"inline","content":"Contenu détaillé pour Image A1 (remplissage)."}'>
+                <div class="card-media" aria-hidden="true">
+                  <svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice">
+                    <rect width="100%" height="100%" fill="#ececec"></rect>
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#aaa" font-size="16">Image</text>
+                  </svg>
+                </div>
+                <div class="card-body">
+                  <strong>Image + Titre A1</strong>
+                  <p class="muted">Courte description A1</p>
+                </div>
+              </a>
+
+              <a class="card card-text" href="#" data-popup='{"title":"Article A2","type":"external","url":"https://example.com","content":"Article externe - s'ouvre dans un nouvel onglet."}'>
+                <div class="card-body">
+                  <strong>Titre A2</strong>
+                  <p class="muted">Courte description A2</p>
+                </div>
+              </a>
+
+              <a class="card card-logo" href="#" data-popup='{"title":"Logo A3","type":"inline","content":"Détails pour logo A3."}'>
+                <div class="card-logo-wrap" aria-hidden="true">
+                  <div class="logo-placeholder">LOGO</div>
+                </div>
+                <div class="card-body">
+                  <strong>Logo + Titre A3</strong>
+                  <p class="muted">Courte description A3</p>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <!-- duplicate for steps 2..6, keeping placeholders and different popup positions -->
+          <li class="step" data-index="2">
+            <div class="step-head">
+              <div class="step-dot">2</div>
+              <div class="step-title">
+                <h3>Titre 2</h3>
+                <p class="step-desc">Courte description de l'étape 2.</p>
+              </div>
+            </div>
+            <div class="step-links">
+              <a class="card card-text" href="#" data-popup='{"title":"Titre B1","type":"inline","content":"Détails B1."}'>
+                <div class="card-body"><strong>Titre B1</strong><p class="muted">Desc B1</p></div>
+              </a>
+              <a class="card card-image" href="#" data-popup='{"title":"Titre B2","type":"inline","content":"Détails B2."}'>
+                <div class="card-media"><svg viewBox="0 0 400 220"><rect width="100%" height="100%" fill="#ececec"></rect></svg></div>
+                <div class="card-body"><strong>Image B2</strong><p class="muted">Desc B2</p></div>
+              </a>
+            </div>
+          </li>
+
+          <li class="step" data-index="3">
+            <div class="step-head">
+              <div class="step-dot">3</div>
+              <div class="step-title">
+                <h3>Titre 3</h3>
+                <p class="step-desc">Courte description de l'étape 3.</p>
+              </div>
+            </div>
+            <div class="step-links">
+              <a class="card card-logo" href="#" data-popup='{"title":"Logo C1","type":"inline","content":"Détails C1."}'>
+                <div class="card-logo-wrap"><div class="logo-placeholder">LOGO</div></div>
+                <div class="card-body"><strong>Logo C1</strong><p class="muted">Desc C1</p></div>
+              </a>
+              <a class="card card-text" href="#" data-popup='{"title":"Article C2","type":"external","url":"https://example.com","content":"Article externe."}'>
+                <div class="card-body"><strong>Titre C2</strong><p class="muted">Desc C2</p></div>
+              </a>
+            </div>
+          </li>
+
+          <li class="step" data-index="4">
+            <div class="step-head">
+              <div class="step-dot">4</div>
+              <div class="step-title">
+                <h3>Titre 4</h3>
+                <p class="step-desc">Courte description de l'étape 4.</p>
+              </div>
+            </div>
+            <div class="step-links">
+              <a class="card card-text" href="#" data-popup='{"title":"D1","type":"inline","content":"D1 details"}'>
+                <div class="card-body"><strong>Titre D1</strong><p class="muted">Desc D1</p></div>
+              </a>
+              <a class="card card-image" href="#" data-popup='{"title":"D2","type":"inline","content":"D2 details"}'>
+                <div class="card-media"><svg viewBox="0 0 400 220"><rect width="100%" height="100%" fill="#ececec"></rect></svg></div>
+                <div class="card-body"><strong>Image D2</strong><p class="muted">Desc D2</p></div>
+              </a>
+            </div>
+          </li>
+
+          <li class="step" data-index="5">
+            <div class="step-head">
+              <div class="step-dot">5</div>
+              <div class="step-title">
+                <h3>Titre 5</h3>
+                <p class="step-desc">Courte description de l'étape 5.</p>
+              </div>
+            </div>
+            <div class="step-links">
+              <a class="card card-logo" href="#" data-popup='{"title":"E1","type":"inline","content":"E1 details"}'>
+                <div class="card-logo-wrap"><div class="logo-placeholder">LOGO</div></div>
+                <div class="card-body"><strong>Logo E1</strong><p class="muted">Desc E1</p></div>
+              </a>
+              <a class="card card-text" href="#" data-popup='{"title":"E2","type":"external","url":"https://example.com","content":"E2 external"}'>
+                <div class="card-body"><strong>Titre E2</strong><p class="muted">Desc E2</p></div>
+              </a>
+            </div>
+          </li>
+
+          <li class="step" data-index="6">
+            <div class="step-head">
+              <div class="step-dot">6</div>
+              <div class="step-title">
+                <h3>Titre 6</h3>
+                <p class="step-desc">Courte description de l'étape 6.</p>
+              </div>
+            </div>
+            <div class="step-links">
+              <a class="card card-text" href="#" data-popup='{"title":"F1","type":"inline","content":"F1 details"}'>
+                <div class="card-body"><strong>Titre F1</strong><p class="muted">Desc F1</p></div>
+              </a>
+              <a class="card card-image" href="#" data-popup='{"title":"F2","type":"inline","content":"F2 details"}'>
+                <div class="card-media"><svg viewBox="0 0 400 220"><rect width="100%" height="100%" fill="#ececec"></rect></svg></div>
+                <div class="card-body"><strong>Image F2</strong><p class="muted">Desc F2</p></div>
+              </a>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- Popup container -->
+  <div id="popup" class="popup" role="dialog" aria-hidden="true" aria-modal="true">
+    <div class="popup-inner">
+      <button class="popup-close" id="popupClose" aria-label="Fermer">✕</button>
+      <h3 id="popupTitle"></h3>
+      <div id="popupContent"></div>
+      <p class="popup-note muted"><small>Fermer avec Échap ou en cliquant hors du panneau.</small></p>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="assets/script.js"></script>
 </body>
 </html>
+
+Le sam. 15 nov. 2025 à 13:05, <tbernard658@gmail.com> a écrit :
+https://tbernard658-source.github.io/portfolio/
