@@ -137,7 +137,7 @@ body{margin:0;background:var(--paper);color:var(--text);-webkit-font-smoothing:a
 /* Position par défaut (panel à droite) */
 .close {
   position: absolute;
-  right: 18px;
+  right: 482px;
   top: 14px;
   border: 0;
   background: transparent;
